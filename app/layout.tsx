@@ -63,6 +63,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <TailwindIndicator />
           </ThemeProvider>
         </body>
+         <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </html>
     </>
   )
