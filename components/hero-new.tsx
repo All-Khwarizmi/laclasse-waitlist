@@ -5,8 +5,6 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-import DockLive from "./dock-live"
-
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -34,7 +32,7 @@ export default function Hero() {
       })
   }
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidde p-4 sm:p-6 lg:p-8">
+    <div className="relative flex h-full max-w-full items-center justify-center overflow-hidden rounded-lg bg-background p-5 sm:p-10 mt-5 sm:mt-20">
       <div className="relative z-10 w-full max-w-4xl mx-auto text-center space-y-8">
         <p className="text-lg sm:text-xl font-medium text-blue-600">
           Pour les enseignants qui passent plus de temps à chercher leurs
@@ -70,11 +68,18 @@ export default function Hero() {
             Rejoindre la liste d&apos;attente
           </Button>
         </form>
-        {isSuccess && <p>Merci pour votre inscription</p>}
-        {error && <p>Une erreur est survenue</p>}
-        <div className="w-full flex justify-center">
+        {isLoading && <p>Envoi en cours...</p>}
+        {isSuccess && (
+          <p className="text-green-500">Merci pour votre inscription</p>
+        )}
+        {error && (
+          <p className="text-red-500">
+            Une erreur est survenue, veuillez réessayer plus tard
+          </p>
+        )}
+        {/* <div className="w-full flex justify-center">
           <DockLive />
-        </div>
+        </div> */}
       </div>
     </div>
   )

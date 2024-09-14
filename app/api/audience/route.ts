@@ -15,7 +15,6 @@ export async function POST(request: Request) {
       audienceId,
       email,
     })
-    console.log({ response })
 
     if (response.error) {
       return new Response(response.error.message, { status: 400 })
@@ -27,8 +26,6 @@ export async function POST(request: Request) {
       subject: "Bienvenue dans La Classe !",
       react: EmailTemplate(),
     })
-
-    console.log({ data, error })
 
     if (error) {
       return new Response(error.message, { status: 400 })

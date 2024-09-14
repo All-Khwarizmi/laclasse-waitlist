@@ -1,7 +1,8 @@
-import { Dock, DockIcon } from "@/components/magicui/dock";
-import React from "react";
+import React from "react"
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
+import { Dock, DockIcon } from "@/components/magicui/dock"
+
+export type IconProps = React.HTMLAttributes<SVGElement>
 
 export default function DockLive() {
   return (
@@ -27,7 +28,7 @@ export default function DockLive() {
         </DockIcon>
       </Dock>
     </div>
-  );
+  )
 }
 
 const Icons = {
@@ -71,5 +72,4 @@ const Icons = {
       />
     </svg>
   ),
-};
-
+}
