@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import DockLive from "@/components/dock-live"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: {
