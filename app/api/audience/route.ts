@@ -1,3 +1,4 @@
+import { EmailTemplate } from "../utils/onboard-email-template"
 import { resend } from "../utils/resend-client"
 
 const audienceId = process.env.RESEND_AUDIENCE_ID
@@ -18,6 +19,19 @@ export async function POST(request: Request) {
 
     if (response.error) {
       return new Response(response.error.message, { status: 400 })
+    }
+
+    const { data, error } = await resend.emails.send({
+      from: "La Classe <bienvenue@laclasse.app>",
+      to: [email],
+      subject: "Bienvenue dans La Classe !",
+      react: EmailTemplate(),
+    })
+
+    console.log({ data, error })
+
+    if (error) {
+      return new Response(error.message, { status: 400 })
     }
 
     return new Response("Contact added to audience", { status: 200 })
